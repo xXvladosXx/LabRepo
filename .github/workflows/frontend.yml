@@ -2,26 +2,27 @@ name: GHAction flow to Docker hub
 
 on:
   push:
-    branches: [ main ]
+    branches: main
 
-  steps:
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+  jobs:
+    docker:
+      runs-on: ubuntu-latest
 
-      -
-        name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          context: ./
-          file: ./Dockerfile
-          push: true
-          tags: spg51/DAfront:latest
+      steps:
+        - name: Login to DockerHub
+          uses: docker/login-action@v1 
+          with:
+            username: ${{ secrets.DOCKER_HUB_USERNAME }}
+            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      -
-        name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+        - name: Build and push
+          id: docker_build
+          uses: docker/build-push-action@v2
+          with:
+            context: ./
+            file: ./Dockerfile
+            push: true
+            tags: spg51/DAfront:latest
+
+        - name: Image digest
+          run: echo ${{ steps.docker_build.outputs.digest }}
