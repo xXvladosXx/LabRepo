@@ -10,9 +10,6 @@ jobs:
 
     steps:
 
-      - name: Setup Buildx
-        uses: docker/setup
-
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
