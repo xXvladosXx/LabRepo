@@ -22,7 +22,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: spg51/DAfront:latest
+          tags: spg51/lab:ghfront1
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
