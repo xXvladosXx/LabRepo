@@ -2,7 +2,7 @@ name: GHAction flow to Docker hub
 
 on:
   push:
-    branches: [ main ]
+    branches: main
 
 jobs:
   docker:
