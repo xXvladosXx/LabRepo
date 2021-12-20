@@ -24,12 +24,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Login to GitHub Packeges
-        uses: docker/login-action@v1 
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push
         id: docker_build
@@ -40,4 +34,4 @@ jobs:
           push: true
           tags: |
             spg51/lab:ghfront1
-            ghcr.io/spglab/lab:ghfront1
+          
