@@ -2,13 +2,15 @@ name: GitHub Action flow to Docker hub
 
 on:
   push:
-    branches: main
+    branches: [ main ]
 
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: action/checkout@v2
+      
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
