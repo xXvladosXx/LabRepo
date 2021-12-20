@@ -25,7 +25,7 @@ jobs:
       #    push: true
       #    tags: spg51/lab:ghfront1
       - name: Build phase
-        run: docker build -f dockerfile.v1 -t spg/lab:ghfront1
+        run: docker build -f dockerfile.v1 -t spg/lab:ghfront1 .
       - name: Push phase
         run: docker push spg/lab:ghfront1  
       - name: Image digest
