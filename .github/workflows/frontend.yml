@@ -1,4 +1,4 @@
-name: GHAction flow to Docker hub 
+name: GitHub Action flow to Docker hub 
 
 on:
   push:
