@@ -1,4 +1,4 @@
-name: GitHub Action flow to Docker hub 
+name: GitHub Action next flow to Docker hub 
 
 on:
   push:
